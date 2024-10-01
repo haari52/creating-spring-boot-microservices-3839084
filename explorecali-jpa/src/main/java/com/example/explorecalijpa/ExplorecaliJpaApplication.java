@@ -18,7 +18,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 @SpringBootApplication
 public class ExplorecaliJpaApplication implements CommandLineRunner {
-    private final String TOUR_IMPORT_FILE = "ExploreCalifornia.json";
+    private final String TOUR_IMPORT_FILE = "explorecali-jpa/ExploreCalifornia.json";
 
     @Autowired
     private TourPackageService tourPackageService;
@@ -37,7 +37,7 @@ public class ExplorecaliJpaApplication implements CommandLineRunner {
         System.out.println("Persisted Packages = " + tourPackageService.total());
         createToursFromFile(TOUR_IMPORT_FILE);
         System.out.println("Persisted Tours = " + tourService.total());
-       
+
         /********* CHALLENGES **********/
         System.out.println("\n\nEasy Tours");
         tourService.lookupByDifficulty(Difficulty.Easy).forEach(System.out::println);
